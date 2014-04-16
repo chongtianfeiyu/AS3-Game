@@ -1,0 +1,14 @@
+package Core.Controller
+{
+	import Core.CharacterBase;
+
+	public class BasicController
+	{
+		
+		protected var _target:CharacterBase;
+		
+		public function BasicController()
+		{
+		}
+	}
+}

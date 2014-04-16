@@ -1,0 +1,18 @@
+package Core.Controller
+{
+	import Core.Object.ActionObject;
+
+	public class MonsterController extends BasicController
+	{
+		public function MonsterController()
+		{
+			super();
+		}
+		
+		override public function AutoRun():void
+		{
+			var me:ActionObject = _target as ActionObject;
+			if (!me.nextCanMove) changeDir();
+		}
+	}
+}

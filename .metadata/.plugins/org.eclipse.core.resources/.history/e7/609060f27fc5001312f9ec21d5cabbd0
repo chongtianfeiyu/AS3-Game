@@ -1,0 +1,28 @@
+package Core.Scene
+{
+	import flash.display.Sprite;
+	import flash.display.Stage;
+	
+	import Core.Common.Global;
+	
+	
+	
+	//游戏场景
+	public class gameScene extends Sprite
+	{
+		
+		/**
+		 * 舞台中的对象列表
+		 */
+		protected var objectList:Array;
+		
+		public function gameScene(_stage:Stage)
+		{
+			//TODO: implement function
+			super();
+			Global.stage = _stage;
+			objectList = new Array();
+			Global.stage.addEventListener(Event.ENTER_FRAME, render);
+		}
+	}
+}

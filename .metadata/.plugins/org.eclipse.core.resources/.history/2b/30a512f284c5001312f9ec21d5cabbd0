@@ -1,0 +1,83 @@
+package Core.Object
+{
+	import flash.display.MovieClip;
+	
+	import Core.Controller.BasicController;
+
+	public class ActionObject extends GameObjectBase
+	{
+		//速度
+	    protected var speed:Number=1.2;
+		
+		protected var walkDirection:uint=0
+			
+		public static const UP:uint = 1;
+		public static const DOWN:uint = 2;
+		public static const LEFT:uint = 3;
+		public static const RIGHT:uint = 4;
+		
+		private var _instance:MovieClip;
+		
+		/**
+		 * 控制器
+		 */
+		protected var controller:BasicController;
+		
+		
+		public function ActionObject(ctrl:BasicController, instance:Class)
+		{
+			controller = ctrl;
+			controller.target = this;  
+			
+			_instance = new instance();
+			this.addChild(_instance);
+		}
+		
+		/**
+		 * 修改移动方向
+		 */
+		public function set direction(dir:uint):void
+		{
+			walkDirection = dir;
+		}
+		
+		
+		protected function move():void
+		{
+			_instance.gotoAndStop("wait");
+			
+			// 根据不同的方向进行移动
+			switch(walkDirection)
+			{
+				case UP:
+					_instance.y -= speed;
+					break;
+				case DOWN:
+					_instance.y += speed;
+					break;
+				case LEFT:
+					_instance.x -= speed;
+					break;
+				case RIGHT:
+					_instance.x += speed;
+					break;
+				default:break;
+			}
+		}
+		
+		/**
+		 * 覆盖父类的Do方法
+		 */
+		override public function Do():void
+		{
+			if (walkDirection != 0) move();
+			super.Do();
+		}
+		
+		override public function Die():void
+		{
+			controller.die(); //当自己被删除的时候，通知控制器卸载侦听，以释放内存
+		}
+	
+	}
+}

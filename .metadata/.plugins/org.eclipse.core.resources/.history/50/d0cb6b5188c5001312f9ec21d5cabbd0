@@ -1,0 +1,15 @@
+package Core.Character
+{
+	import Core.Controller.BasicController;
+	import Core.Object.ActionObject;
+	
+	import flash.display.Sprite;
+	
+	public class WizPlayer extends ActionObject
+	{
+		public function WizPlayer(ctrl:BasicController)
+		{
+			super(ctrl, instance);
+		}
+	}
+}

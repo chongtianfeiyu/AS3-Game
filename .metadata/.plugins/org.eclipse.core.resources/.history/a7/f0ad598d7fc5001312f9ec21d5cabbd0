@@ -1,0 +1,73 @@
+package Core.Controller
+{
+
+	
+
+	import flash.events.KeyboardEvent;
+	
+	import Core.Player;
+	import Core.Common.Global;
+
+	public class KeyController extends BasicController
+	{
+		public function KeyController()
+		{
+			super();
+			setupListener();
+		}
+		
+		/**
+		 * 安装侦听器
+		 */
+		public function setupListener():void
+		{
+			Global.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			Global.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		}
+		
+		/**
+		 * 消亡
+		 */
+		override public function die():void
+		{
+			Global.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			Global.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		}
+		
+		/**
+		 * 当按键按下时触发
+		 * @param        e
+		 */
+		protected function onKeyDown(e:KeyboardEvent):void
+		{
+			var me:Player = _target as Player;
+			switch(e.keyCode)
+			{
+				case 38:
+					me.direction = Player.UP;
+					break;
+				case 40:
+					me.direction = Player.DOWN;
+					break;
+				case 37:
+					me.direction = Player.LEFT;
+					break;
+				case 39:
+					me.direction = Player.RIGHT;
+					break;
+				default:break;
+			}
+		}
+		
+		/**
+		 * 当按键弹起时触发
+		 * @param        e
+		 */
+		protected function onKeyUp(e:KeyboardEvent):void
+		{
+			var me:Player = _target as Player;
+			var active:Array = new Array(37,38,39,40);
+			if (active.indexOf(e.keyCode) != -1) me.direction = 0;
+		}
+	}
+}

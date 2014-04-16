@@ -1,0 +1,35 @@
+package Core.Controller
+{
+
+	
+	import flash.ui.Keyboard;
+	
+	import Core.Common.Global;
+
+	public class KeyController extends BasicController
+	{
+		public function KeyController()
+		{
+			super();
+			setupListener();
+		}
+		
+		/**
+		 * 安装侦听器
+		 */
+		public function setupListener():void
+		{
+			Global.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			Global.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		}
+		
+		/**
+		 * 消亡
+		 */
+		override public function die():void
+		{
+			Global.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			Global.stage.removeEventListener(KeyboardEvent.KEY_UP, onKeyUp);
+		}
+	}
+}

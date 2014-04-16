@@ -1,0 +1,10 @@
+package Core.Controller
+{
+	public class MonsterController extends BasicController
+	{
+		public function MonsterController()
+		{
+			super();
+		}
+	}
+}

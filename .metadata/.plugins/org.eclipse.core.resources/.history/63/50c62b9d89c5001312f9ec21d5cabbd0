@@ -1,0 +1,20 @@
+package Core.Controller
+{
+	import Core.Object.GameObjectBase;
+
+	public class BasicController
+	{
+		
+		protected var _target:GameObjectBase;
+		
+		public function BasicController()
+		{
+		}
+		
+		public function set target(character:GameObjectBase):void{
+		 _target= character;
+		}
+		
+		public function die():void{}
+	}
+}

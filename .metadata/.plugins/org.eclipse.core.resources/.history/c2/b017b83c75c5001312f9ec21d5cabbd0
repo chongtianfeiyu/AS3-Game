@@ -1,0 +1,11 @@
+package Core
+{
+	public class Character
+	{
+		public function Character()
+		{
+		}
+		
+		
+	}
+}

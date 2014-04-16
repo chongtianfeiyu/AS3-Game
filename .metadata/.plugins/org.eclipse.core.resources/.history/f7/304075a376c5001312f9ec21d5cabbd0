@@ -1,0 +1,11 @@
+package Core.Controller
+{
+	public class BasicController
+	{
+		
+		protected var _target:gameObject;
+		public function BasicController()
+		{
+		}
+	}
+}

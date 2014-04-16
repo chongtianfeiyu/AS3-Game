@@ -1,0 +1,13 @@
+package Core
+{
+	public class Character
+	{
+		public function Character()
+		{
+		}
+		
+		public function Do():void{}
+		
+		public function Die():void{}
+	}
+}
