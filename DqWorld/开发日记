@@ -1,0 +1,4 @@
+2014.8.18
+1 创建项目DqWorld,引用了robteLegs v2.2 作为mvc框架
+2.创建了资源加载管理器 ResLoadManage：EventDispatcher ,对loader进行封装
+   ps:总要有个从外部加载swf，或者image的东西吧？

@@ -1,9 +1,0 @@
-package Core.Controller
-{
-	public class BasicController
-	{
-		public function BasicController()
-		{
-		}
-	}
-}

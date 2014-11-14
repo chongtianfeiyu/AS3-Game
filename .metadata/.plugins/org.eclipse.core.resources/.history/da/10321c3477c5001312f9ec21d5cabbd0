@@ -1,9 +1,0 @@
-package Core.Common
-{
-	public class Global
-	{
-		public function Global()
-		{
-		}
-	}
-}
